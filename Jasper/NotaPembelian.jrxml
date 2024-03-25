@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b454831-ed9d-4dea-ab52-1bc8ecd16818">
+	<property name="ireport.zoom" value="1.9487171000000019"/>
+	<property name="ireport.x" value="31"/>
+	<property name="ireport.y" value="3"/>
+	<import value="org.apache.commons.lang.time.*"/>
+	<parameter name="pkp" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM Pesanan
+JOIN Acara ON Pesanan.IDAcara = Acara.IDAcara
+JOIN (
+	SELECT nama, noTelp, alamat, username FROM Penyewa, Akun WHERE Penyewa.NIKPenyewa = Akun.NIKPenyewa
+	 )  AS Customer ON Pesanan.username = Customer.username
+JOIN (SELECT namaTim, IDTim FROM Tim
+	 )  AS Team ON Pesanan.IDTim = Team.IDTim
+WHERE Pesanan.kodePesanan = $P{pkp}]]>
+	</queryString>
+	<field name="kodePesanan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kodePesanan"/>
+		<property name="com.jaspersoft.studio.field.label" value="kodePesanan"/>
+	</field>
+	<field name="tanggalPemesanan" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="tanggalPemesanan"/>
+		<property name="com.jaspersoft.studio.field.label" value="tanggalPemesanan"/>
+	</field>
+	<field name="namaAcara" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="namaAcara"/>
+		<property name="com.jaspersoft.studio.field.label" value="namaAcara"/>
+	</field>
+	<field name="waktuPelaksanaan" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="waktuPelaksanaan"/>
+		<property name="com.jaspersoft.studio.field.label" value="waktuPelaksanaan"/>
+	</field>
+	<field name="lokasiPelaksanaan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="lokasiPelaksanaan"/>
+		<property name="com.jaspersoft.studio.field.label" value="lokasiPelaksanaan"/>
+	</field>
+	<field name="permintaanTambahan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="permintaanTambahan"/>
+		<property name="com.jaspersoft.studio.field.label" value="permintaanTambahan"/>
+	</field>
+	<field name="biayaTambahan" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="biayaTambahan"/>
+		<property name="com.jaspersoft.studio.field.label" value="biayaTambahan"/>
+	</field>
+	<field name="IDTim" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="IDTim"/>
+		<property name="com.jaspersoft.studio.field.label" value="IDTim"/>
+	</field>
+	<field name="username" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="username"/>
+		<property name="com.jaspersoft.studio.field.label" value="username"/>
+	</field>
+	<field name="IDAcara" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="IDAcara"/>
+		<property name="com.jaspersoft.studio.field.label" value="IDAcara"/>
+	</field>
+	<field name="COLUMN_11" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="IDAcara"/>
+		<property name="com.jaspersoft.studio.field.label" value="IDAcara"/>
+	</field>
+	<field name="jenisAcara" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="jenisAcara"/>
+		<property name="com.jaspersoft.studio.field.label" value="jenisAcara"/>
+	</field>
+	<field name="paket" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="paket"/>
+		<property name="com.jaspersoft.studio.field.label" value="paket"/>
+	</field>
+	<field name="keterangan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="keterangan"/>
+		<property name="com.jaspersoft.studio.field.label" value="keterangan"/>
+	</field>
+	<field name="estimasiHarga" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="estimasiHarga"/>
+		<property name="com.jaspersoft.studio.field.label" value="estimasiHarga"/>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama"/>
+	</field>
+	<field name="noTelp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="noTelp"/>
+		<property name="com.jaspersoft.studio.field.label" value="noTelp"/>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="alamat"/>
+		<property name="com.jaspersoft.studio.field.label" value="alamat"/>
+	</field>
+	<field name="COLUMN_19" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="username"/>
+		<property name="com.jaspersoft.studio.field.label" value="username"/>
+	</field>
+	<field name="namaTim" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="namaTim"/>
+		<property name="com.jaspersoft.studio.field.label" value="namaTim"/>
+	</field>
+	<field name="COLUMN_21" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="IDTim"/>
+		<property name="com.jaspersoft.studio.field.label" value="IDTim"/>
+	</field>
+	<variable name="PajakTotal" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[($V{SubTotal}*0.1)]]></variableExpression>
+		<initialValueExpression><![CDATA[($V{SubTotal}*0.1)]]></initialValueExpression>
+	</variable>
+	<variable name="SubTotal" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[($F{estimasiHarga}+$F{biayaTambahan})]]></variableExpression>
+		<initialValueExpression><![CDATA[($F{estimasiHarga}+$F{biayaTambahan})]]></initialValueExpression>
+	</variable>
+	<variable name="Total" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[($V{SubTotal}+$V{PajakTotal})]]></variableExpression>
+		<initialValueExpression><![CDATA[($V{SubTotal}+$V{PajakTotal})]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" x="164" y="1" width="225" height="36" uuid="23b4a926-c3e9-40c6-bba2-db90964df75b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Poppins" size="24" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[NOTA PEMESANAN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="192" splitType="Stretch">
+			<elementGroup>
+				<staticText>
+					<reportElement x="104" y="45" width="86" height="15" uuid="2d1292bd-ad51-46e8-b160-b00199f5068e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Poppins SemiBold" size="9" isBold="false"/>
+					</textElement>
+					<text><![CDATA[EVENT ORGANIZER]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="104" y="60" width="121" height="12" uuid="4af6a67e-d54e-49d1-84c3-ab8125bde2b6"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Poppins Medium" size="8"/>
+					</textElement>
+					<text><![CDATA[Jl. Groove no. 13, Kota Malang.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="104" y="72" width="236" height="12" uuid="ee03a3db-12a4-49a9-9573-005eaf943e31"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Poppins Medium" size="8"/>
+					</textElement>
+					<text><![CDATA[WA: +62 821-3680-2959  Email: pipaspace.eo@gmail.com]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="104" y="24" width="96" height="25" uuid="27544a74-4ebd-4cdb-9943-b9432c7c6a17"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Poppins SemiBold" size="16" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[PIPASPACE]]></text>
+				</staticText>
+			</elementGroup>
+			<textField>
+				<reportElement x="2" y="150" width="210" height="13" forecolor="#5E5E5E" uuid="c7cbc00c-d6ce-4f2c-a705-2639df478eb5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="2" y="4" width="94" height="95" uuid="2d51db1a-d961-45e2-bedd-da2b45aef38e"/>
+				<imageExpression><![CDATA["C:\\Users\\stani\\Documents\\MATERI TIF\\SEMESTER 3\\Basis Data\\Tugas Akhir\\BE\\ProyekAkhir\\src\\proyekakhir\\PLogo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="360" y="107" width="100" height="30" uuid="4db38660-2e55-4ae3-87d8-23efa46dfc29">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f0879f7f-67ac-4eb6-97bc-a70b308ac25b"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Poppins" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KODE PESANAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="107" width="95" height="30" uuid="b6ed0b24-14d4-4dff-b256-4fc635e8e106">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dd45c9fd-c81b-46f5-95cb-e1b2dfbfff52"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Poppins" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANGGAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="111" width="60" height="13" uuid="8c8e660e-b74d-41f2-8eab-ef9d9c577b37"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Poppins Medium" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kepada Yth. :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="124" width="130" height="13" uuid="ae551747-72b8-44a6-96d5-bb9db12be602"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Poppins" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="361" y="24" width="194" height="30" uuid="d9cb9adf-8524-49ec-950c-0f1d4eba6d51">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dee8b0b6-77c9-482d-a329-486d8bb56db9"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Poppins" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIM PENANGGUNG JAWAB]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="137" width="130" height="13" forecolor="#5E5E5E" uuid="b348c193-67a5-49e7-abc3-da18ce5298b3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noTelp}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="460" y="137" width="95" height="30" uuid="7d5a7f88-03a7-499e-8b8f-d551ade7adbf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dd45c9fd-c81b-46f5-95cb-e1b2dfbfff52"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggalPemesanan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="137" width="100" height="30" uuid="92bea980-b052-4da4-aa73-0faf23a80286">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f0879f7f-67ac-4eb6-97bc-a70b308ac25b"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kodePesanan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="54" width="194" height="30" uuid="eddbf8d5-9d43-4f94-a2ee-a560481a2c60">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dee8b0b6-77c9-482d-a329-486d8bb56db9"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{namaTim}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-1" y="4" width="555" height="1" uuid="696d9fe1-9070-4747-a43d-a31bb380921c"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="42" y="0" width="62" height="30" forecolor="#B30A07" uuid="535f6ded-b415-4a3e-ac5a-30bce3f8e15d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="263c8c56-901e-4f64-9423-dbb76178a8c6"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Poppins" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESKRIPSI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="80" height="30" forecolor="#B30A07" uuid="26dcc896-4dd6-44cc-b7dc-3e04e772879f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="66f72a4f-2165-441a-818f-711423a13167"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Poppins" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HARGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="0" width="20" height="30" forecolor="#B30A07" uuid="1136388c-d17e-4fe5-8dfa-614526775f2d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Poppins" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="40" height="30" forecolor="#B30A07" uuid="896b5d61-0d48-4bf6-9a91-a5396f00afcc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Poppins" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAJAK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="474" y="0" width="80" height="30" forecolor="#B30A07" uuid="0f90fef3-87da-4fc8-ab04-a9b039d40fbb"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Poppins" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUMLAH]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="31" width="555" height="1" forecolor="#B30A07" uuid="b031b6b6-efda-40be-84df-3c6064de423d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="113" splitType="Stretch">
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="42" y="10" width="218" height="25" uuid="17612295-66d2-4048-aeee-ec4e608caa6b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="263c8c56-901e-4f64-9423-dbb76178a8c6"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jenisAcara} + " (" + $F{paket} + ")" + " \"" + $F{namaAcara} + "\""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="70" width="80" height="36" uuid="5b22a6c8-fd14-433e-a232-299761bdb45e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="66f72a4f-2165-441a-818f-711423a13167"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{biayaTambahan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="10" width="80" height="50" uuid="ff9ce805-b355-4c0d-a785-b2c5221f290d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ad6d7067-0d67-403c-b5f3-e680f52967af"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estimasiHarga}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="10" width="20" height="50" uuid="dd0e16a3-b15c-4081-8437-7fd7b8bca029"/>
+				<textElement>
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="42" y="82" width="218" height="24" uuid="0a574fcb-0642-45b3-8b14-53f45b698bea"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{permintaanTambahan} == null ? "-" : $F{permintaanTambahan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="42" y="70" width="218" height="12" uuid="48d97c1e-9c87-4a6f-95ed-ea50f25d616d"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<text><![CDATA[Permintaan tambahan :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="70" width="20" height="36" uuid="9bb8c59c-9971-481b-bc1b-a55f686c1389"/>
+				<textElement>
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="10" width="80" height="50" uuid="01e827bf-9abb-4aca-accc-9ff9f2dc73d1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ad6d7067-0d67-403c-b5f3-e680f52967af"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estimasiHarga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="70" width="80" height="36" uuid="ef678458-3887-44eb-84d9-f8868a01a983">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="66f72a4f-2165-441a-818f-711423a13167"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{biayaTambahan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="10" width="40" height="50" uuid="00af3349-a48b-4f78-8cfc-1f51957d57b5"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PPN 10%"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="70" width="40" height="36" uuid="70dad7c1-c40d-4cce-aff2-98138ca84871"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PPN 10%"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="111" width="555" height="1" forecolor="#B30A07" backcolor="rgba(255, 14, 10, 0.0)" uuid="bf08a89a-7d39-4b02-af18-12c3e6e0c9a0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="42" y="35" width="32" height="12" uuid="01af8865-096a-47e9-a8a5-ab26271bf2bb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="263c8c56-901e-4f64-9423-dbb76178a8c6"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Waktu : "]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="42" y="48" width="32" height="12" uuid="30fd0e8f-9999-4422-870a-1b9333e1b790">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="263c8c56-901e-4f64-9423-dbb76178a8c6"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Lokasi : " + $F{lokasiPelaksanaan}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="74" y="35" width="186" height="12" uuid="7999f726-4baa-4e77-9e58-d5f78fe87fbe">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="263c8c56-901e-4f64-9423-dbb76178a8c6"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waktuPelaksanaan}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="74" y="48" width="186" height="12" uuid="b339efd5-4694-49a4-9eb1-c5d18f19da16">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="263c8c56-901e-4f64-9423-dbb76178a8c6"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lokasiPelaksanaan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="149" splitType="Stretch">
+			<staticText>
+				<reportElement x="380" y="6" width="41" height="15" uuid="db5513ca-b38d-42bf-a22f-dd32e7d3e535"/>
+				<textElement>
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<text><![CDATA[Subtotal :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="474" y="6" width="80" height="15" uuid="201dec6f-e87d-45f6-934f-4196e4f15287"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rp. " + $V{SubTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="380" y="21" width="29" height="15" uuid="9e4b9895-d2c9-4c70-b85d-2572d4b7fd9c"/>
+				<textElement>
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<text><![CDATA[Pajak :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="474" y="21" width="80" height="15" uuid="d787947c-2d4f-4f69-afcb-3a7e87d94844"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins Medium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rp. " + $V{PajakTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="380" y="36" width="60" height="15" uuid="6b37ab96-6a83-48cb-b789-1006300e22e1"/>
+				<textElement>
+					<font fontName="Poppins" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL BAYAR :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="474" y="36" width="80" height="15" uuid="b62cc406-bf53-4d04-9626-75ce1b56ab28"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Poppins" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rp. " + $V{Total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="42" y="49" width="217" height="37" uuid="0ba9d07c-8bf4-4585-a272-5137610f3ff5"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Poppins" size="8"/>
+				</textElement>
+				<text><![CDATA[
+ - Pembayaran menggunakan metode yang tersedia
+ - Pembayaran dilakukan sebesar 100%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="49" width="54" height="13" uuid="9b9896e3-520e-4cb8-89d6-5c005cbd27b4"/>
+				<textElement>
+					<font fontName="Poppins" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Catatan :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="120" width="268" height="26" uuid="77e15853-e716-45a5-abc2-41c8bf982954"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Poppins SemiBold" size="13" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[~ TERIMA KASIH ATAS PESANAN ANDA ~]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
